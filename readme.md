@@ -1,10 +1,6 @@
-### 2020/1/26 test
+# 2020/1/27 制定python基础学习计划
 
-for my study
-
-### 2020/1/27 制定python基础学习计划
-
-1、 字符串基本操作 序列(一） >> 对应文件 **sequence1**
+### 1、 字符串基本操作 序列(一） >> 对应文件 **sequence1**
 
 2、列表、元组基本操作 序列（二） >> 对应文件**sequence2**
 
@@ -23,3 +19,8 @@ for my study
 9、 文件
 
 ...暂时这些其余待学习过程中补充 
+
+# 2020/1/26 test
+
+for my python fundamental study
+
