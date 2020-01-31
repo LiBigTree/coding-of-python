@@ -146,6 +146,3 @@ x = 'this is an incredible test'.translate(table)
 print(x)
 
 # 补充：以is打头的方法用于判断字符串是否具有某种特定的性质
-
-
-
