@@ -74,6 +74,75 @@ print(d)
 # print(b)
 # 通过上面，知道python中整除是向坐标轴左边圆整。同时，在未来的使用过程也应该常注意 正负号不同带来的影响
 
+# ----2020/02/02---
+# 3、字符串格式设置功能用于字典----
+print('3: ')
+phone_book = {'Beth': '9102', 'Alice': '2341', 'Cecil': '3258'}
+print("Ceil's phone number is {Cecil}".format_map(phone_book))
+
+# ----------字---典---方---法------------------
+
+# 4、clear 清除所有的字典项
+print('4:')
+d = {'age': 42, 'name': 'Gumby'}
+returned_value = d.clear()
+print(d)
+print(returned_value)
+
+# 案例:
+# 场景一：
+print('4.1:')
+x = {}
+y = x
+x['key'] = 'value'
+print(y)
+x = {}
+print(y)  # 场景一x的变化没有对y产生影响
+# 场景二：
+print('4.2:')
+x = {}
+y = x
+x['key'] = 'value'
+print(y)
+
+print(x.clear())
+print(y)
+# 场景二用方法后 都被清除了
+
+# 解释： 场景一创造了一个新字典关联到x，而y仍然指向原来的字典
+# 场景二clear是针对原字典，直接做了清除
+
+# 5、copy 浅复制：当修改副本值，原件也会变化  可以看出 这种复制是 复制了键，没复制值
+# （这里有点迷 暂且这样 待以后学到更多原理再探究佐证）
+print('5:')
+x = {'username': 'admin', 'machines': ['foo', 'bar', 'baz']}
+y = x.copy()
+y['username'] = 'mlh'
+y['machines'] .remove('bar')
+print(y)
+print(x)
+# >> 深复制——复制所有的值
+from copy import deepcopy
+d = {}
+d['names'] = ['Alfred', 'Bertrand']
+c = d.copy()
+dc = deepcopy(d)
+d['names'].append('Clive')
+
+print(c)
+print(dc)
+
+# 6、fromkeys 创建一个新字典，其中包含指定的键
+print('6:')
+print(dict.fromkeys(['name', 'age'], '(unknown)'))
+
+# 7、get 用其访问字典时，不会引发异常，而是返回一个值，默认是None，也可指定
+print('7:')
+d = {}
+print(d.get('name', 'N/A'))
+d['name'] = 'Eric'
+print(d.get('name'))
+
 # ------2020年1月19日 对字典实例思考----------------
 #
 # people = {
@@ -115,3 +184,55 @@ print(d)
 # else:
 #     print('数据查询项不存在')
 
+# 8、items 返回一个包含所有字典项的列表—— 字典视图（key, value）
+print('8:')
+d = {'title': 'Python Web Site', 'url': 'http://www.python.org', 'spam': 0}
+it = d.items()
+print(it)
+
+# 字典视图：可用于迭代，可确定长度，可成员资格检查
+# 字典视图不复制，始终是底层字典的反映
+d['spam'] = 1
+print(('spam', 0) in it)
+print(('spam', 1) in it)
+
+# 9、keys 返回一个键的字典视图
+print('9:')
+print(d.keys())
+
+# 10、values 返回一个由字典中的值组成的字典视图
+print('10: ')
+print(d.values())
+
+# 11、pop 获取指定键关联的值并将之删除
+print('11: ')
+d = {'x': 1, 'y': 2}
+print(d.pop('x'))
+print(d)
+
+# 12、popitem 随机弹出一个字典项并将之删除
+print('12: ')
+print(d.popitem())
+
+# 13、setdefault 获取与指定键相关联的值而且当不包含指定值的键时，在字典中添加指定的值和键
+# 联想get的功能
+print('13: ')
+d = {}
+d.setdefault('name', 'N/A')
+print(d)
+
+d['name'] = 'Gumby'
+d.setdefault('name', 'N/A')
+print(d)
+
+# 14、update 使用一个字典的项来更新另一个字典
+print('14: ')
+d = {
+    'title': 'Python Web Site',
+    'url': 'http://www.python.org',
+    'changed': 'Mar 14 22:09:15 MET 2016'
+}
+
+x = {'title': 'Python Language Website'}
+d.update(x)
+print(d)
