@@ -1,8 +1,17 @@
-# 2020/1/31 对python学习内容做出一些变更
+> 时间线：
+>
+>2020/02/02 添加参考书籍： 
+>
+>python基础教程（第三版） 
+>[挪] Magnus Lie Hetland(著) 袁国忠（译）
+>
+> 2020/1/31 对python学习内容做出一些变更
+>
 > 2020/1/27 制定python基础学习计划
 >
->参考书籍： python基础教程（第三版） 
->[挪] Magnus Lie Hetland(著) 袁国忠（译）
+> 2020/1/26 test : for  python fundamental study
+
+
 
 ### 1、 字符串基本操作 序列(一）： 对应文件 **sequence1**
 
@@ -24,7 +33,4 @@
 
 ...暂时这些其余待学习过程中补充 
 
-# 2020/1/26 test
-
-for my python fundamental study
 
