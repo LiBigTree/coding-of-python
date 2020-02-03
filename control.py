@@ -37,5 +37,166 @@ print(foobar.sqrt(4))
 # from module1 import open as open1
 # from module2 import open as open2
 
-# 3、序列解包
+# 3、序列解包: 将一个序列（或者任何可迭代对象解包，并将得到的值储存到一系列变量中）
+print('3.1:')
+x, y, z = 1, 2, 3
+print(x, y, z)
+x, y = y, x
+print(x, y, z)
+# 在使用返回元组（可迭代对象）时很有用——
+print('3.2: ')
+scoundrel = {'name': 'Robin', 'girlfriend': 'Marion'}
+key, value = scoundrel.popitem()
+
+print(key)
+print(value)
+
+# 解包两边元素个数要相等，若不相等，可使用*来收集多余的值。
+# 用带星号*收集的变量最后总是包含一个列表
+print('3.3: ')
+a, b, *rest = [1, 2, 3, 4]
+print(rest)
+
+a, *b, c = "abc"
+print(a, b, c)
+
+# 4、链式赋值
+# 即 x = y = somefunction() 等价于：
+# y = somefuction()
+# x = y
+
+# 5、 增强赋值
+# + — * / %
+# x = x + 1 >> x += 1
+
+# 6、代码块
+# 代码块是一组语句，在满足条件时执行（if for 等等）
+# 在python中代码块通过冒号指出，通过缩进内容来表达
+
+# -------条--件--语--句--------------
+
+# 7、布尔值 bool
+# 假： False None 各种类型的0 空序列、空映射（"" () [] {}）
+# 真： True 除了假
+print(bool('I think, therefore I am'))
+
+# 假值之间不等价： [] != ""
+# 8、bool >> if（-else）语句
+# print('8: ')
+# name = input('what is your name?')
+# if name.endswith('Gumby'):
+#     print('hello, Mr.Gumby')
+# else:
+#     print('Hello, friends!')
+
+# 引申： if条件表达式： 三目运算符
+status = "friends" if name.endswith("Gumby") else "stranger"
+
+# 9、elif子句
+print('9: ')
+# num = int(input('Enter a number:'))
+# if num > 0:
+#     print('The number is positive')
+# elif num < 0:
+#     print('The number is negative')
+# else:
+#     print('The number is zero')
+
+# 代码块之间也可以嵌套
+
+# 10、关于条件本身——运算符
+# 比较运算符： ==、 <、 >、 >=、 <=、 !=、 is、 is not、in、not in
+
+# 关于 == 和 is：
+# == 判断两个对象是否相等， is是检查两个对象是否相同——即指向同一个地址
+
+# in： 成员资格运算符
+
+# 关于字符串和序列比较：
+# 根据字符串字母排列顺序逐个比较>>获悉字母顺序值用ord
+print(ord("a"))
+
+# 关于布尔运算符： and、 or、 not
+# 特征： 只做必要的运算——短路逻辑 and 找到False就返回， or找到True就返回
+
+# 11、断言：让程序在错误条件出现时立即崩溃
+# 使用关键字 assert
+age = 10
+assert 0 < age < 100
+age = 1
+assert 0 < age < 100, 'The age must be realistic'
+print('come here')
+# 断言之后就不往下执行了
+
+# --------------循--------环-------------------
+# 12、while循环
+print('12: ')
+x = 1
+while x <= 3:
+    print(x)
+    x += 1
+
+# 13、for循环： 为序列中每个元素执行代码块
+print('13: ')
+words = ['this', 'is', 'an', 'ex', 'parrot']
+for word in words:
+    print(word)
+
+# 一般，只要能够使用for循环，就不用while循环
+
+# 14、迭代字典（在for循环中可用序列解包）
+d = {'x': 1, 'y': 2, 'z': 3}
+for key, value in d.items():
+    print(key, 'corresponds to', value)
+# 字典顺序是不确定的，顺序很重要--处理方法是 将键或值储存在一个列表，用模块collections中的OrderDict类排序，再进行迭代。
+
+# 15、一些迭代工具
+
+# 15.0、对于迭代（遍历），在python中有一个内置函数
+print(list(range(0, 10)))
+# 范围类似于切片--（start, end, stride）,包含起点不包含结束。
+
+# 15.1： zip 并行迭代, 用于缝合序列--当序列长度不同时，zip在最短的序列用完后停止
+print('15.1: ')
+names = ['anne', 'beth', 'george', 'damon']
+ages = [12, 45, 32, 102]
+for name, age in zip(names, ages):
+    print(name, 'is', age, 'years old')
+
+# 15.2 enumerate 迭代时获取索引
+print('15.2:')
+seasons = ['Spring', 'Summer', 'Fall', 'Winter']
+print(list(enumerate(seasons)))
+
+for index, season in enumerate(seasons):
+    if 'Fall' in season:
+        seasons[index] = "秋天"
+        print(seasons)
+
+# 15.3、反向迭代：reversed 排序迭代：sorted
+print('15.3: ')
+
+print(sorted([4, 3, 6, 8, 3]))
+print(list(reversed('hello world!')))
+
+# 16、跳出循环
+
+# 16.1 break 结束循环
+print('16.1: ')
+from math import sqrt
+for n in range(99, 0, -1):
+    root = sqrt(n)
+    if root == int(root):
+        print(n)
+        break
+
+# 16.2 continue 结束当前迭代
+
+# 16.3 while True/break
+# 例子：
+# while True:
+#     word = input('Please enter a word: ')
+#     if not word:
+#         break
+#     print('the word was', word)
 
