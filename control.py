@@ -188,6 +188,7 @@ for n in range(99, 0, -1):
     root = sqrt(n)
     if root == int(root):
         print(n)
+        print('here')
         break
 
 # 16.2 continue 结束当前迭代
@@ -200,3 +201,64 @@ for n in range(99, 0, -1):
 #         break
 #     print('the word was', word)
 
+# 17、跳出循环
+# 法一： 可在循环开始前定义一个布尔变量并将其设置为Fasle，再在跳出循环的条件处设置为True
+print('17: ')
+break_out = False
+for n in range(99, 81, -1): # 为了对比测试法二的else子句，将下限改成了81
+    root = sqrt(n)
+    if root == int(root):
+        print(n)
+        break_out = True
+        break
+if not break_out:
+    print("I didn't break out!")
+# 法二： else子句也能达到上述效果， 而且代码更加简洁
+for n in range(99, 81, -1): # 为了对比测试法二的else子句，将下限改成了81
+    root = sqrt(n)
+    if root == int(root):
+        print(n)
+        break
+else:
+    print("I didn't break out!")
+
+# 18、简单推导： 列表推导，从其他列表创建列表
+print('18: ')
+print([x*x for x in range(10)])
+
+# 可以加if
+print([x*x for x in range(10) if x % 3 == 0])
+
+# 可以加更多的for
+print([(x, y) for x in range(3) for y in range(3)])
+# 对比:
+result = []
+for x in range(3):
+    for y in range(3):
+        result.append((x, y))
+print(result)
+
+# 例子： 首字母相同的男女名字配对
+girls = ['alice', 'bernice', 'clarice']
+boys = ['chris', 'arnold', 'bob']
+
+letterGirls = {}
+for girl in girls:
+    letterGirls.setdefault(girl[0], []).append(girl)
+    # print(letterGirls)
+print([b+'+'+g for b in boys for g in letterGirls[b[0]]])
+
+# 字典推导
+squares = {i: "{} squared is {}".format(i, i**2) for i in range(10)}
+print(squares[8])
+
+# 19、pass
+# 一个占位符，什么也不做
+# 场景举例： 编写if语句时，一个代码块暂时出不来，就先pass占着位置
+
+# 20、del
+# 删除不再用的变量值
+
+# 21、exec、eval
+# exec： 将字符串作为代码执行，exec提供一个参数时是全局变量>>所以要有命名空间
+# eval： 计算用字符串表示的python表达式的值，并返回结果
