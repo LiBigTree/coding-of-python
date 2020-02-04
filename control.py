@@ -162,6 +162,7 @@ names = ['anne', 'beth', 'george', 'damon']
 ages = [12, 45, 32, 102]
 for name, age in zip(names, ages):
     print(name, 'is', age, 'years old')
+print(list(zip(names, ages)))
 
 # 15.2 enumerate 迭代时获取索引
 print('15.2:')
