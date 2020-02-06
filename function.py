@@ -1,3 +1,7 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+
 # 如何将语句组成函数
 # 概览：
 # 1、自定义函数
@@ -218,3 +222,38 @@ x = 1
 foo()
 print(x)
 
+# 10、递归
+# 递归两要素： 1） 基线条件； 2）递归条件
+
+# 可以把递归和循环对比理解
+print('10: ')
+
+
+def factorial(m):
+    if m == 1:
+        return 1
+    else:
+        return m * factorial(m-1)
+
+
+def factorial2(m):
+    result = m
+    for i in range(1, m):
+        result *= i
+    return result
+
+
+print(factorial(10))
+print(factorial2(10))
+
+x = 4
+
+
+def change(k):
+    k = 3
+    print(k)
+# 深刻理解作用域（局部和全局）
+
+
+change(x)
+print(x)
