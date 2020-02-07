@@ -257,5 +257,3 @@ def change(k):
 
 change(x)
 print(x)
-
-
