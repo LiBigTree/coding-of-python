@@ -80,3 +80,5 @@ print('6: ')
 # try expect finally else 可以共存
 
 # 8、只是想发出警告，可使用模块warnings中的函数warn
+
+# try的哲学——请求宽恕比获得允许更容易。
