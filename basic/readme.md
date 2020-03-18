@@ -1,5 +1,8 @@
 # 时间线
 
+>2020/3/18 目录调整为学习python基础的大纲
+>添加知识细节
+>
 >2020/2/17 实践python，创建文件夹basic 和 exercise
 > 
 >2020/2/8 更新：迭代器、模块
@@ -47,8 +50,11 @@
 ## 二、exercise
  
  
-# 参考书籍
->python基础教程（第三版） 
+# 参考：
+> 
+>书籍：python基础教程（第三版） 
 >
 >[挪] Magnus Lie Hetland(著) 袁国忠（译）
-
+>
+> 网站：
+>https://docs.python.org/3.7/
