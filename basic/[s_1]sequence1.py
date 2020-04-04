@@ -20,7 +20,6 @@ print(2)
 x = "hello, "
 y = "world!"
 print(x + y)
-
 # 3、字符串表示 str 和 repr
 # 直接打印字符串和print显示不一样， 所以才有上述两种说法
 print(3)
@@ -60,6 +59,7 @@ fullname = ["Alfred", "Smoketoomuch"]
 print("Mr {name[1]}".format(name=fullname))
 
 import math
+
 tmpl = "The {mod.__name__} module defines the value {mod.pi} for π"
 x = tmpl.format(mod=math)
 print(x)
@@ -86,7 +86,7 @@ print("{name:10}".format(name="Bob"))
 print("Pi day is {pi:10.2f}".format(pi=3.1415))
 
 # 放在宽度和精度说明之间的 逗号 是添加千位分隔符
-x = '{:20,.2f}'.format(10**10)
+x = '{:20,.2f}'.format(10 ** 10)
 print(x)
 
 # 11、符号、对齐、0填充
