@@ -191,6 +191,7 @@ init(d)
 store(d, 'Luke Skywalker', 'Anakin Skywalker')
 print(lookup(d, 'last', 'Skywalker'))
 
+
 # 8、分配参数：
 
 
@@ -210,6 +211,7 @@ print('9: ')
 test = 3
 scope = vars()
 print(scope['test'])
+
 
 # 在调用函数时，会创建一个新的命名空间，不会影响外部（全局）作用域的x。
 # 在函数内使用的变量称为局部变量
@@ -234,7 +236,7 @@ def factorial(m):
     if m == 1:
         return 1
     else:
-        return m * factorial(m-1)
+        return m * factorial(m - 1)
 
 
 def factorial2(m):
@@ -253,8 +255,27 @@ x = 4
 def change(k):
     k = 3
     print(k)
+
+
 # 深刻理解作用域（局部和全局）
 # global语句可以时函数的局部变量成为全局变量
 
 change(x)
 print(x)
+
+
+# 高阶函数：
+# 匿名函数
+# lambda 表达式：
+# 举例：
+
+def lmd(f, a, b):
+    r = f(a, b)
+
+    return r
+
+
+print(lmd(lambda a, b: a + b, 2, 3))
+
+# 闭包
+# 装饰器
