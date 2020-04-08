@@ -100,12 +100,9 @@
 3、关闭
 
 # _Main reference：_
-> 
->书籍：
->
->python基础教程（第三版） 
+> 1、python基础教程（第三版） 
 >&emsp;[挪] Magnus Lie Hetland (著) 袁国忠（译）
 >
-> 网站：
+>2、python3.7官方文档：https://docs.python.org/3.7/
 >
->&emsp;https://docs.python.org/3.7/
+>3、[尚硅谷]李立超老师的python课程
