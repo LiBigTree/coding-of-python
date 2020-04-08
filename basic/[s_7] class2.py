@@ -20,6 +20,35 @@ class FooBar():
 f = FooBar()
 print(f.somevar)
 
+
+class Dog:
+    """
+    狗的类
+    """
+    def __init__(self, name, age, gender, height):
+        self.name = name
+        self.age = age
+        self.gender = gender
+        self.height = height
+
+    def bark(self):
+        """
+        狗叫
+        :return:
+        """
+        print("汪汪汪~~~")
+
+    def run(self):
+        """
+        狗跑的方法
+        :return:
+        """
+        print("{}快乐地奔跑着~~~".format(self.name))
+
+
+d = Dog('小黑', 8, 'male', 30)
+d.run()
+
 # 2、重写普通方法 重写是继承的一个重要机制
 print('2:')
 
