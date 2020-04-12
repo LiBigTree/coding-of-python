@@ -4,7 +4,7 @@ file_name = 'c:/Users/lilichao/Desktop/告白气球.flac'
 # t 读取文本文件（默认值）
 # b 读取二进制文件
 
-with open(file_name , 'rb') as file_obj:
+with open(file_name, 'rb') as file_obj:
     # 读取文本文件时，size是以字符为单位的
     # 读取二进制文件时，size是以字节为单位
     # print(file_obj.read(100))
