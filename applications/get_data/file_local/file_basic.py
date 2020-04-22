@@ -7,5 +7,4 @@ with open('test.txt', 'r') as f:
     content = f.read()  # read方法返回以字符串形式文件里的内容
     print(content)
 
-# 练习在文件里写入内容并显示当前文件内容
 
