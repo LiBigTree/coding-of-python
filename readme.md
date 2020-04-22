@@ -7,7 +7,7 @@
     jupyter_practice 用笔记本学习知识，刷题
 
 2、applications python 应用内容（第三方库）
-    crawl 数据获取之爬虫学习
-    get_data 数据处理学习
+    crawl_example 数据分析/爬虫实例
+    get_data 数据获取--爬虫
     web_connect 网络连接：客户端和服务器
     interface_design 用python做界面设计
