@@ -7,7 +7,7 @@ import re
 # print("\u4e2d\uff0c\u5141\u8bb8\u6211\u4eec\u66f4\u968f\u5fc3\u6240\u6b32\u66f4\u81ea\u7136\u7684\u4f7f\u7528\u6574\u6570\uff0c\u53ea\u6709\u4e00\u79cd\u7c7b\u578b\uff0c\u6ca1\u6709\u957f\u5ea6\u9650\u5236\u3002".encode("utf?").decode("utf?"))
 
 headers = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36"
+    "User-Agent": ''
 }
 
 session = requests.session()
