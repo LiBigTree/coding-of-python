@@ -7,7 +7,7 @@
     jupyter_practice 用笔记本学习知识，刷题
 
 2、applications python 应用内容（第三方库）
-    [0]config 进行爬虫活动时模拟浏览器访问的信息
+    config 进行爬虫活动时模拟浏览器访问的信息
     [1]get_data 数据获取--爬虫
     [2]data_analysis 数据分析
     [3]crawl_example 数据分析/爬虫实例    
