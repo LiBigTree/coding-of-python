@@ -22,4 +22,3 @@ if __name__ == '__main__':
     # ---- 美化输出 ----
     soup = BeautifulSoup(demo, "html.parser")
     print(soup.prettify())  # prettify方法使用对每个标签加换行符的方法来使得文档更漂亮的输出
-    
