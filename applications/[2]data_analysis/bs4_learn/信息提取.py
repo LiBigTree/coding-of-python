@@ -33,7 +33,7 @@ if __name__ == '__main__':
     # print(soup.find_all(True))
     # -显示以b开头的内容
     for tag in soup.find_all(re.compile('b')):
-        print(tag.name)
+        print('re', tag.name)
 
     # attrs: 对标签属性值的检索字符串，可标注属性检索
     print('查找p标签中包含course属性的内容：{}'.format(soup.find_all('p', 'course')))
