@@ -5,7 +5,7 @@ import scrapy
 class DemoSpider(scrapy.Spider):
     name = 'demo'
     # allowed_domains = ['python123.io']
-    start_urls = ['http://python123.io/ws/demo.html']
+    start_urls = ['http://python123.io/ws/demo.html']  # 简化了写法，未简化的是生成器
 
     def parse(self, response):
         # 编写对响应页面的内容处理
