@@ -32,10 +32,10 @@ def output_data(u_list, num):
         print(tplt.format(u[0], u[1], u[2], chr(12288)))
     # print(u_list)
 
+
 if __name__ == '__main__':
     url = "http://www.zuihaodaxue.com/zuihaodaxuepaiming2019.html"
     u_info = []
     html = crawl_data(url)
     get_data(u_info, html)
     output_data(u_info, 20)
-
