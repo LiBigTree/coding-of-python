@@ -10,38 +10,107 @@
 
 ## 一、Python中数据是如何组织起来的
 
-### 字符串、数值
+### 数值、字符串
+
+#### 数值
+
+1、`+ - * / 常规用法`
+
+2、括号用来分组
+
+3、除法运算`/`返回浮点数类型。要返回整数类型用两个`//`
+
+4、计算余数用`%`
+
+5、使用`**`计算乘方
+
+6、等号相当于给一个变量赋值
+
+7、包含多种类型运算数结果以浮点数形式显示
+
+8、交互模式下，上一次的表达时赋值给变量`_`
+
+9、使用复数，后缀`j` 或者`J`表示虚数部分
+
+#### 字符串
+
+1、使用`'...' "..."`表达字符串
+
+2、反斜杠`\`用来转义
+
+3、不转义在字符串前面加r :
+
+`r"..."`
+
+4、三重引号不像让回车包含到字符串中，在行尾加一个`\`
+
+```python
+def doc_test():
+    a = """\
+    123 \
+    456
+    789
+    """
+    print(a)
+```
+
+5、字符串用`+`连接到一起，用`*`重复
+
+6、相邻两个或多个字符串自动连在一起
+
+```python
+a= 'p''c'
+a
+Out[3]: 'pc'
+```
+
+用在把很长的字符串分开输入的场合
+
+7、字符串可以被索引和切片，访问第一个索引的位置是0，以此类推。：索引是获取单个字符串，切片是获取子字符串。
+
+8、切片开始被包括在结果中，结束不被包括。
+
+9、切片中越界索引会被自动处理
+
+```python
+a = 'a123'
+a[3:5]
+Out[5]: '3'
+```
+
+10、字符串不能被修改，想要一个不同的字符串，方法是新建一个
+
+11、使用内建函数`len()`返回一个字符串的长度
 
 ### 列表
 
-#### 索引
+1、通过方括号括起、逗号隔开的一组元素得到；
 
-推导式
+2、列表支持索引、切片、拼接
 
-#### 方法
+3、列表的切片返回一个新的列表
+
+4、列表的内容可以改变
+
+* 可以使用append方法添加新元素
+* 赋值不同切片的`[]`可以改变元素大小或者清空列表
+
+5、内置函数`len()`可以作用到列表上
+
+6、列表内可以嵌套列表
+
+```python
+lst=[['a','b','c'], 3, 4]
+lst[0][1]
+Out[8]: 'b'
+```
 
 ### 元组
-
-#### 索引
-
-#### 方法
-
-#### 生成器表达式
-
-语法类似与列表推导式，外层为圆括号。
 
 ```python
 # 生成器表达式
 print("使用生成器表达式：", sum(i*i for i in range(10)))
 ```
-
-### 字典
-
-#### 索引
-
-#### 方法
-
-### 函数
 
 #### 最简单的定义与调用
 
@@ -697,11 +766,151 @@ __all__ = ['moduleA','moduleB']
 
 ## 三、数据的流通
 
-循环、选择、占位、终止、断言
+### while语句
 
-错误、异常、预定义字句
+只要条件为真就一直执行，非零整数为真，零为假。
 
-> 两种可区分的错误：错误和异常
+标准比较操作符有：`<（小于） >（大于） ==（等于） <=（小于等于） >=（大于等于） !=（不等于）`
+
+```python
+def whl_t():
+    a, b = 0, 1
+    while a < 10:
+        print(a, end=',')
+        a, b = b, a + b
+
+
+if __name__ == '__main__':
+    whl_t()
+```
+
+### if语句
+
+可以有零个或多个`elif`部分以及一个可选的`else`部分
+
+```python
+def if_t():
+    x = int(input("Please input an integer: "))
+    if x < 0:
+        x = 0
+        print('Negative changed to zero')
+    elif x == 0:
+        print('Zero')
+    elif x == 1:
+        print('Single')
+    else:
+        print('More')
+```
+
+**关键字`elif`适合用于避免过多的缩进**
+
+### for语句
+
+对任意序列进行迭代，条目的迭代顺序与它们在序列中出现的顺序一致。
+
+```python
+def for_t():
+    words = ['cat', 'window', 'defenestrate']
+    for w in words:
+        print(w, len(w))
+```
+
+**遍历集合时如果要做修改，做法是循环该集合的副本或者创建新集合**
+
+直接修改： `# RuntimeError: dictionary changed size during iteration`
+
+```python
+def for_change_error():
+    users = {'a': 'active', 'window': 'inactive', 'defenestrate': 'active'}
+    for user, status in users.items():  # RuntimeError: dictionary changed size during iteration
+        if status == 'inactive':
+            del users[user]
+```
+
+做法:
+
+```python
+def for_change():
+    users = {'a': 'active', 'window': 'inactive', 'defenestrate': 'active'}
+    for user, status in users.copy().items():  # RuntimeError: dictionary changed size during iteration
+        if status == 'inactive':
+            del users[user]
+    print(users.keys())
+```
+
+```python
+def for_change2():
+    active_users = {}
+    users = {'a': 'active', 'window': 'inactive', 'defenestrate': 'active'}
+    for user, status in users.items():  # RuntimeError: dictionary changed size during iteration
+        if status == 'active':
+            active_users[user] = status
+    print(active_users.keys())
+```
+
+### range和enumerate函数
+
+返回的都是可迭代对象：
+
+`range`可以用来迭代由算术级数组成的序列，`enumerate()`可以用来迭代序列的索引位置和其对应的值
+
+### break/continue/for...else.../while...else...
+
+1、`break`可以跳出最近的`for`或`while`循环
+
+2、`for`或`while`循环带有`else`子句时，在for耗尽可迭代对象、while变为假值时执行，**break终止时不执行else**。
+
+3、`continue`表示继续循环中下一次迭代
+
+```python
+def break_t():
+    for n in range(2, 10):
+        for x in range(2, n):
+            if n % x == 0:
+                print(n, 'equals', x, '*', n//x)
+                break
+        else:
+            # loop fell through without finding a factor
+            print(n, 'is a prime number')
+          
+2 is a prime number
+3 is a prime number
+4 equals 2 * 2
+5 is a prime number
+6 equals 2 * 3
+7 is a prime number
+8 equals 2 * 4
+9 equals 3 * 3       
+```
+
+```python
+def continue_t():
+    for num in range(2, 10):
+        if num % 2 == 0:
+            print("Found an even number", num)
+            continue
+        print("Found an odd number", num)
+```
+
+### pass语句
+
+什么也不做，语法上需要这么一个东西，但不需要执行什么的时候用。
+
+```python
+def pass_t():
+    while True:
+        pass  # Busy-wait for keyboard interrupt
+
+
+class MyEmptyClass:
+    pass
+
+
+def initlog(*args):
+    pass  # Remember to implement this!
+```
+
+错误分为语法错误和异常
 
 ### 语法错误
 
