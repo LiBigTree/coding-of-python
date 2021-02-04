@@ -9,6 +9,7 @@ def format_two():
     no_notes = 43_132_495
     percentage = yes_notes / (yes_notes + no_notes)
     print('{:-9} YES votes  {:2.2%}'.format(yes_notes, percentage))
+    # TODO: 旧的输出格式总结
 
 
 if __name__ == '__main__':
